@@ -22,11 +22,7 @@
 }
 form{
   width: 60%;
-  @media screen and (max-width:600px)  {
-    form{
-      width:100%;
-    }
-  }
+  
 }
 *{
   display: flex;
