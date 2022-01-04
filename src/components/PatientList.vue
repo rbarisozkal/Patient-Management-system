@@ -1,20 +1,43 @@
 <template>
-  <ul>
-    <li v-for="patient in patients" :key="patient">{{ patient }}</li>
-  </ul>
+  <li>{{ name }} {{ surName }}</li>
 </template>
 
 <script>
-
 export default {
   name: "PatientList",
   data() {
-    return { };
+    return {};
   },
-  methods:{
-      submitAppointment(id, name, surName, date, time, hospitalName) {
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    surName: {
+      type: String,
+      
+    },
+    chosenDoctor: {
+      type: String,
+    },
+    chosenHospital: {
+      type: Number,
+    },
+    chosenDate: {
+      type: Date,
+    },
+    chosenTime: {
+      type: Date(),
+    },
+  },
+  methods: {
+    submitAppointment(id, name, surName, date, time, hospitalName) {
       const newPatientData = {
-        id: new Date().toISOString(),
+        id: id,
         name: name,
         surName: surName,
         date: date,
@@ -23,6 +46,6 @@ export default {
       };
       this.patients.push(newPatientData);
     },
-  }
+  },
 };
 </script>

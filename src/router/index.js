@@ -19,14 +19,14 @@ const routes = [
   },
   {
     path:'/appointment',
-    name:'Get an Appointment',
+    name:'get-an-appointment',
     component:function () {
       return import('../views/Appointment.vue')
     }
   },
   {
     path:'/appointment',
-    name:'Patient List',
+    name:'patient-list',
     component:function () {
       return import('../components/PatientList.vue')
     }
