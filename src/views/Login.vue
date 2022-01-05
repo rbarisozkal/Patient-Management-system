@@ -10,7 +10,6 @@
         <label>Password: </label>
       <input type="password">
       </div>
-      
     </form>
   </div>
 </template>

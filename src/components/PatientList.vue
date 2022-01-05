@@ -1,7 +1,6 @@
 <template>
-  <li>{{ name }} {{ surName }}</li>
+  <li>{{ name }}  {{date}} {{time}}</li>
 </template>
-
 <script>
 export default {
   name: "PatientList",
@@ -25,13 +24,13 @@ export default {
       type: String,
     },
     chosenHospital: {
-      type: Number,
+      type: String,
     },
     chosenDate: {
       type: Date,
     },
     chosenTime: {
-      type: Date(),
+      type: String,
     },
   },
   methods: {
@@ -40,9 +39,9 @@ export default {
         id: id,
         name: name,
         surName: surName,
-        date: date,
-        time: time,
-        hospital: hospitalName,
+        chosenDate: date,
+        chosenTime: time,
+        chosenHospital: hospitalName,
       };
       this.patients.push(newPatientData);
     },

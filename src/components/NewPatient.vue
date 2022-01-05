@@ -16,7 +16,11 @@
     <div class="inputHolder">
       <label> Which hospital do you want to go ? </label>
       <select>
-        <option :value="enteredHospital" v-for="hospital in hospitals" :key="hospital">
+        <option
+          :value="enteredHospital"
+          v-for="hospital in hospitals"
+          :key="hospital"
+        >
           {{ hospital }}
         </option>
       </select>
@@ -40,11 +44,18 @@
 </template>
 <script>
 export default {
-    data(){
-        return{
-            hospitals: ["Liv Hospital - Kizilay", "Medical Park - Batikent"],
-        }
-    },
+  data() {
+    return {
+      hospitals: ["Liv Hospital - Kizilay", "Medical Park - Batikent"],
+      enteredID: "",
+      enteredName: "",
+      enteredSurName: "",
+      enteredHospital: "",
+      enteredDate: "",
+      enteredTime: "",
+      enteredDoctor: "",
+    };
+  },
   name: "NewPatient",
   emits: ["add-new"],
   methods: {
@@ -70,13 +81,15 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 form {
-  width: 60%;
+  width: 100%;
   display: flex;
-  flex-wrap: nowrap;
+  
 }
+
 * {
+  color:#000000;
   display: flex;
   flex-direction: column;
   margin: 5px;
@@ -90,8 +103,23 @@ form {
 .inputHolder input {
   width: 100%;
   height: 20px;
-
   border: 1px solid lightsalmon;
+}
+button{
+  background: #fffffe;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+  border-radius: 4px;
+  border: 0px solid transparent;
+  align-self: flex-end;
+  transition: background-color 0.2s ease-in;
+  color: #000000;
+  transition: color 0.2s ease-in;
+  
+  &:hover{
+    background: #fa255e;
+    color:#fffffe;
+  }
 }
 .date-style {
   height: 20px;
@@ -99,5 +127,8 @@ form {
   font-size: 12px;
   display: flex;
   flex-direction: row;
+}
+input:focus{
+  outline: none;
 }
 </style>

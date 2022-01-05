@@ -2,10 +2,9 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/login">Log In</router-link> |
-     <router-link to="/appointment">Get an Appointment</router-link>
-    <router-view/>
+    <router-link to="/appointment">Get an Appointment</router-link>
+    <router-view />
   </div>
-  
 </template>
 
 <style lang="scss">
@@ -16,11 +15,11 @@
   text-align: center;
   color: #2c3e50;
   background: lightblue;
-  
 }
-body{
+body {
   margin: 0px;
   height: 100%;
+  background-color: #fa255e;
 }
 #nav {
   padding: 30px;

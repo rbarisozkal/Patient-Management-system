@@ -14,7 +14,7 @@
       :chosen-doctor="patient.enteredDoctor"
       :chosen-hospital="patient.enteredHospital"
       v-for="patient in patients"
-    >{{patient.name}}</PatientList>
+    >{{patient.name}} </PatientList>
   </ul>
 </template>
 
