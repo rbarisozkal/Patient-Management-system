@@ -1,5 +1,12 @@
 <template>
-  <li>{{ name }}  {{date}} {{time}}</li>
+  <div class="list-wrapper">
+    <ul>
+      <li :key="patient" v-for="patient in patients">
+        {{ patient.name }} {{ patient.surName }} , {{ patient.chosenDate }} ,
+        {{ patient.chosenTime }},{{patient.chosenHospital}}, {{patient.chosenDoctor}}
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {
@@ -8,43 +15,34 @@ export default {
     return {};
   },
   props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    surName: {
-      type: String,
-      
-    },
-    chosenDoctor: {
-      type: String,
-    },
-    chosenHospital: {
-      type: String,
-    },
-    chosenDate: {
-      type: Date,
-    },
-    chosenTime: {
-      type: String,
-    },
-  },
-  methods: {
-    submitAppointment(id, name, surName, date, time, hospitalName) {
-      const newPatientData = {
-        id: id,
-        name: name,
-        surName: surName,
-        chosenDate: date,
-        chosenTime: time,
-        chosenHospital: hospitalName,
-      };
-      this.patients.push(newPatientData);
+    patients: {
+      type: Array,
+      default() {
+        return [];
+      },
     },
   },
 };
 </script>
+<style lang="scss" scoped>
+.list-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  padding: 20px;
+  align-items: flex-start;
+  & ul{
+    text-align: left;
+    width: 90%;
+    background-color: lightskyblue;
+    border-radius: 25px;
+    & li{
+      
+      list-style: none;
+      padding: 5px;
+      margin:10px
+    }
+  }
+}
+</style>

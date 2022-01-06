@@ -2,20 +2,9 @@
   <div class="appointment">
     <h1>Get an Appointment</h1>
     <NewPatient @add-new="submitAppointment"></NewPatient>
+
+    <PatientList :patients="patients" />
   </div>
-  <ul>
-    <PatientList
-      :id="patient.id"
-      :name="patient.name"
-      :sur-name="patient.surName"
-      :chosen-date="patient.date"
-      :chosen-time="patient.time"
-      :key="patient"
-      :chosen-doctor="patient.enteredDoctor"
-      :chosen-hospital="patient.enteredHospital"
-      v-for="patient in patients"
-    >{{patient.name}} </PatientList>
-  </ul>
 </template>
 
 <script>
@@ -32,15 +21,7 @@ export default {
       enteredHospital: "",
       enteredDoctor: "",
       patients: [
-        {
-          id: "12345",
-          name: "Baris",
-          surName: "Ozkal",
-          chosenDate: "12.12.2020",
-          chosenTime:'12:24',
-          chosenDoctor:'ASDDD',
-          chosenHospital:'Liv Hospital'
-        },
+        
       ],
     };
   },
@@ -67,8 +48,13 @@ export default {
 </script>
 
 <style scoped>
+.appointment {
+  background: #eceae0;
+  border-radius: 25px;
+  color: #221E1D;
+}
 form {
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-wrap: nowrap;
 }

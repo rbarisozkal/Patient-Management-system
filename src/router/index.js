@@ -30,7 +30,14 @@ const routes = [
     component:function () {
       return import('../components/PatientList.vue')
     }
+  },{
+    path:'/faq',
+  name:'faq',
+  component:function () {
+    return import('../views/Faq.vue')
   }
+  }
+  
 ]
 
 const router = createRouter({

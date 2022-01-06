@@ -15,12 +15,8 @@
 
     <div class="inputHolder">
       <label> Which hospital do you want to go ? </label>
-      <select>
-        <option
-          :value="enteredHospital"
-          v-for="hospital in hospitals"
-          :key="hospital"
-        >
+      <select @change="(e) => (enteredHospital = e.target.value)">
+        <option :value="hospital" v-for="hospital in hospitals" :key="hospital">
           {{ hospital }}
         </option>
       </select>
@@ -32,9 +28,9 @@
       <input class="date-style" v-model="enteredTime" type="time" />
     </div>
     <div class="inputHolder">
-      <label> Which hospital do you want to go ? </label>
-      <select>
-        <option :value="enteredDoctor" v-for="doctor in doctors" :key="doctor">
+      <label> Which doctor do you want take your examiniation from ?</label>
+      <select @change="(e) => (enteredDoctor = e.target.value)">
+        <option :value="doctor" v-for="doctor in doctors" :key="doctor">
           {{ doctor }}
         </option>
       </select>
@@ -46,7 +42,25 @@
 export default {
   data() {
     return {
-      hospitals: ["Liv Hospital - Kizilay", "Medical Park - Batikent"],
+      doctors: [
+        "DOCTORS",
+        "Alexander Max - Heart Surgeon",
+        "Maximillian Ray - Brain Surgeon",
+        "Tyler Klay - General Surgeon",
+        "Serena Williams - Neurologist",
+        "Novak Djokovic - Psychiatric",
+      ],
+      hospitals: [
+        "HOSPITALS",
+        "Liv Hospital - Kizilay",
+        "Medical Park - Batikent",
+        "Yildirim Hospital - Yenimahalle",
+        "Ibn-i Sina Hospital - Ulus",
+        "Ankara Central Hospital - Asti",
+        "Medical Park - Cayyolu",
+        "Ankara Magnet Hospital - Cankaya",
+        "MiddleEast Hospital - Yenimahalle",
+      ],
       enteredID: "",
       enteredName: "",
       enteredSurName: "",
@@ -85,11 +99,10 @@ export default {
 form {
   width: 100%;
   display: flex;
-  
 }
 
 * {
-  color:#000000;
+  color: #000000;
   display: flex;
   flex-direction: column;
   margin: 5px;
@@ -105,7 +118,7 @@ form {
   height: 20px;
   border: 1px solid lightsalmon;
 }
-button{
+button {
   background: #fffffe;
   padding-top: 7.5px;
   padding-bottom: 7.5px;
@@ -115,10 +128,10 @@ button{
   transition: background-color 0.2s ease-in;
   color: #000000;
   transition: color 0.2s ease-in;
-  
-  &:hover{
+  margin-right: 30px;
+  &:hover {
     background: #fa255e;
-    color:#fffffe;
+    color: #fffffe;
   }
 }
 .date-style {
@@ -128,7 +141,7 @@ button{
   display: flex;
   flex-direction: row;
 }
-input:focus{
+input:focus {
   outline: none;
 }
 </style>
